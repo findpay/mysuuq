@@ -1,0 +1,34 @@
+{
+  "kind": "singleType",
+  "collectionName": "configs",
+  "info": {
+    "singularName": "config",
+    "pluralName": "configs",
+    "displayName": "config"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "appTitle": {
+      "type": "string"
+    },
+    "oneSignalConfig": {
+      "type": "json"
+    },
+    "maintainence": {
+      "type": "boolean",
+      "default": false
+    },
+    "contact_number": {
+      "type": "biginteger"
+    },
+    "whatsapp_number": {
+      "type": "biginteger"
+    },
+    "app_version": {
+      "type": "string"
+    }
+  }
+}
