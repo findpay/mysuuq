@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "request_webs",
+  "info": {
+    "singularName": "request-web",
+    "pluralName": "request-webs",
+    "displayName": "request_web"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "store_name": {
+      "type": "string",
+      "required": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "added": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

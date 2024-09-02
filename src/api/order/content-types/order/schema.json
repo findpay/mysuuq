@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order_id": {
+      "type": "uid"
+    },
+    "order_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "website": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website.website"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "orders"
+    },
+    "order_state": {
+      "type": "enumeration",
+      "enum": [
+        "Reviewing",
+        "Ordered",
+        "Received",
+        "Delivered "
+      ],
+      "default": "Reviewing",
+      "required": true
+    },
+    "order_product": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "product_url": {
+      "type": "string"
+    }
+  }
+}
