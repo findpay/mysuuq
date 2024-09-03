@@ -45,6 +45,16 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::cart.cart"
+    },
+    "payment_state": {
+      "type": "enumeration",
+      "enum": [
+        "success",
+        "Failed",
+        "pending "
+      ],
+      "default": "pending ",
+      "required": true
     }
   }
 }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-09-03T09:33:04.690Z"
+    "x-generation-date": "2024-09-03T10:35:17.040Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1381,6 +1381,9 @@
                                                                   }
                                                                 }
                                                               },
+                                                              "product_url": {
+                                                                "type": "string"
+                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -1477,6 +1480,14 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "payment_state": {
+                                      "type": "string",
+                                      "enum": [
+                                        "success",
+                                        "Failed",
+                                        "pending "
+                                      ]
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -3827,6 +3838,9 @@
                                                                   }
                                                                 }
                                                               },
+                                                              "product_url": {
+                                                                "type": "string"
+                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -3923,6 +3937,14 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "payment_state": {
+                                      "type": "string",
+                                      "enum": [
+                                        "success",
+                                        "Failed",
+                                        "pending "
+                                      ]
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -4668,7 +4690,8 @@
           "data": {
             "required": [
               "order_date",
-              "order_state"
+              "order_state",
+              "payment_state"
             ],
             "type": "object",
             "properties": {
@@ -4720,6 +4743,14 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "payment_state": {
+                "type": "string",
+                "enum": [
+                  "success",
+                  "Failed",
+                  "pending "
+                ]
               }
             }
           }
@@ -4775,7 +4806,8 @@
         "type": "object",
         "required": [
           "order_date",
-          "order_state"
+          "order_state",
+          "payment_state"
         ],
         "properties": {
           "order_id": {
@@ -5978,6 +6010,9 @@
                                                                   }
                                                                 }
                                                               },
+                                                              "product_url": {
+                                                                "type": "string"
+                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -6074,6 +6109,14 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "payment_state": {
+                                      "type": "string",
+                                      "enum": [
+                                        "success",
+                                        "Failed",
+                                        "pending "
+                                      ]
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -6325,6 +6368,14 @@
                 }
               }
             }
+          },
+          "payment_state": {
+            "type": "string",
+            "enum": [
+              "success",
+              "Failed",
+              "pending "
+            ]
           },
           "createdAt": {
             "type": "string",
@@ -7194,6 +7245,9 @@
         ],
         "properties": {
           "data": {
+            "required": [
+              "product_url"
+            ],
             "type": "object",
             "properties": {
               "name": {
@@ -7231,6 +7285,9 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "product_url": {
+                "type": "string"
               }
             }
           }
@@ -7284,6 +7341,9 @@
       },
       "Product": {
         "type": "object",
+        "required": [
+          "product_url"
+        ],
         "properties": {
           "name": {
             "type": "string"
@@ -8430,6 +8490,14 @@
                                                     }
                                                   }
                                                 },
+                                                "payment_state": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "success",
+                                                    "Failed",
+                                                    "pending "
+                                                  ]
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -8839,6 +8907,9 @@
                                         }
                                       }
                                     },
+                                    "product_url": {
+                                      "type": "string"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -8935,6 +9006,9 @@
                 }
               }
             }
+          },
+          "product_url": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -10266,6 +10340,9 @@
                                                                   }
                                                                 }
                                                               },
+                                                              "product_url": {
+                                                                "type": "string"
+                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -10362,6 +10439,14 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "payment_state": {
+                                      "type": "string",
+                                      "enum": [
+                                        "success",
+                                        "Failed",
+                                        "pending "
+                                      ]
                                     },
                                     "createdAt": {
                                       "type": "string",

@@ -971,6 +971,9 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       Attribute.Required &
       Attribute.DefaultTo<'Reviewing'>;
     cart: Attribute.Relation<'api::order.order', 'oneToOne', 'api::cart.cart'>;
+    payment_state: Attribute.Enumeration<['success', 'Failed', 'pending ']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'pending '>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1028,6 +1031,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     singularName: 'product';
     pluralName: 'products';
     displayName: 'product';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -1042,6 +1046,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToOne',
       'api::cart.cart'
     >;
+    product_url: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
