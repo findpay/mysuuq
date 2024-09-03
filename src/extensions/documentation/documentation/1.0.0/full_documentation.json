@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-09-03T10:35:17.040Z"
+    "x-generation-date": "2024-09-03T11:38:27.629Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1488,6 +1488,10 @@
                                         "Failed",
                                         "pending "
                                       ]
+                                    },
+                                    "shipment_cost": {
+                                      "type": "number",
+                                      "format": "float"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -3946,6 +3950,10 @@
                                         "pending "
                                       ]
                                     },
+                                    "shipment_cost": {
+                                      "type": "number",
+                                      "format": "float"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -4691,7 +4699,8 @@
             "required": [
               "order_date",
               "order_state",
-              "payment_state"
+              "payment_state",
+              "shipment_cost"
             ],
             "type": "object",
             "properties": {
@@ -4751,6 +4760,10 @@
                   "Failed",
                   "pending "
                 ]
+              },
+              "shipment_cost": {
+                "type": "number",
+                "format": "float"
               }
             }
           }
@@ -4807,7 +4820,8 @@
         "required": [
           "order_date",
           "order_state",
-          "payment_state"
+          "payment_state",
+          "shipment_cost"
         ],
         "properties": {
           "order_id": {
@@ -6118,6 +6132,10 @@
                                         "pending "
                                       ]
                                     },
+                                    "shipment_cost": {
+                                      "type": "number",
+                                      "format": "float"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -6376,6 +6394,10 @@
               "Failed",
               "pending "
             ]
+          },
+          "shipment_cost": {
+            "type": "number",
+            "format": "float"
           },
           "createdAt": {
             "type": "string",
@@ -8498,6 +8520,10 @@
                                                     "pending "
                                                   ]
                                                 },
+                                                "shipment_cost": {
+                                                  "type": "number",
+                                                  "format": "float"
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -10447,6 +10473,10 @@
                                         "Failed",
                                         "pending "
                                       ]
+                                    },
+                                    "shipment_cost": {
+                                      "type": "number",
+                                      "format": "float"
                                     },
                                     "createdAt": {
                                       "type": "string",

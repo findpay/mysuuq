@@ -55,6 +55,10 @@
       ],
       "default": "pending ",
       "required": true
+    },
+    "shipment_cost": {
+      "type": "decimal",
+      "required": true
     }
   }
 }

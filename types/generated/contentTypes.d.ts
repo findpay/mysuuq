@@ -974,6 +974,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     payment_state: Attribute.Enumeration<['success', 'Failed', 'pending ']> &
       Attribute.Required &
       Attribute.DefaultTo<'pending '>;
+    shipment_cost: Attribute.Decimal & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
