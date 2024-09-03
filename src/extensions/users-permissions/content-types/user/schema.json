@@ -74,6 +74,18 @@
     "active": {
       "type": "boolean",
       "default": true
+    },
+    "addresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::address.address",
+      "mappedBy": "user"
+    },
+    "cart": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cart.cart",
+      "mappedBy": "user"
     }
   }
 }

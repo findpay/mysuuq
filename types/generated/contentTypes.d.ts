@@ -776,6 +776,16 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'api::order.order'
     >;
     active: Attribute.Boolean & Attribute.DefaultTo<true>;
+    addresses: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::address.address'
+    >;
+    cart: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToOne',
+      'api::cart.cart'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -786,6 +796,46 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAddressAddress extends Schema.CollectionType {
+  collectionName: 'addresses';
+  info: {
+    singularName: 'address';
+    pluralName: 'addresses';
+    displayName: 'address';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    street: Attribute.String;
+    phone_number: Attribute.String & Attribute.Required;
+    state: Attribute.String;
+    type: Attribute.Enumeration<['Office', 'Home', 'Other']>;
+    user: Attribute.Relation<
+      'api::address.address',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::address.address',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::address.address',
       'oneToOne',
       'admin::user'
     > &
@@ -821,6 +871,37 @@ export interface ApiBannerBanner extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCartCart extends Schema.CollectionType {
+  collectionName: 'carts';
+  info: {
+    singularName: 'cart';
+    pluralName: 'carts';
+    displayName: 'cart';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    total_price: Attribute.Decimal;
+    user: Attribute.Relation<
+      'api::cart.cart',
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
+    products: Attribute.Relation<
+      'api::cart.cart',
+      'oneToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::cart.cart', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::cart.cart', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -866,6 +947,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     singularName: 'order';
     pluralName: 'orders';
     displayName: 'order';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -888,8 +970,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     > &
       Attribute.Required &
       Attribute.DefaultTo<'Reviewing'>;
-    order_product: Attribute.String & Attribute.Required;
-    product_url: Attribute.String;
+    cart: Attribute.Relation<'api::order.order', 'oneToOne', 'api::cart.cart'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -934,6 +1015,43 @@ export interface ApiPaymentMethodPaymentMethod extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::payment-method.payment-method',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'product';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    price: Attribute.Decimal;
+    old_price: Attribute.Decimal;
+    cart: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::cart.cart'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
       'oneToOne',
       'admin::user'
     > &
@@ -1030,10 +1148,13 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::address.address': ApiAddressAddress;
       'api::banner.banner': ApiBannerBanner;
+      'api::cart.cart': ApiCartCart;
       'api::config.config': ApiConfigConfig;
       'api::order.order': ApiOrderOrder;
       'api::payment-method.payment-method': ApiPaymentMethodPaymentMethod;
+      'api::product.product': ApiProductProduct;
       'api::request-web.request-web': ApiRequestWebRequestWeb;
       'api::website.website': ApiWebsiteWebsite;
     }

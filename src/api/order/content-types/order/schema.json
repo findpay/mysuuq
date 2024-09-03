@@ -4,7 +4,8 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "order"
+    "displayName": "order",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -40,13 +41,10 @@
       "default": "Reviewing",
       "required": true
     },
-    "order_product": {
-      "type": "string",
-      "required": true,
-      "unique": false
-    },
-    "product_url": {
-      "type": "string"
+    "cart": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cart.cart"
     }
   }
 }
