@@ -15,17 +15,6 @@
     "name": {
       "type": "string"
     },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "price": {
       "type": "decimal"
     },
@@ -41,6 +30,15 @@
     "product_url": {
       "type": "string",
       "required": true
+    },
+    "image": {
+      "type": "string"
+    },
+    "payment_info": {
+      "displayName": "payment_info",
+      "type": "component",
+      "repeatable": false,
+      "component": "payment-info.payment-info"
     }
   }
 }

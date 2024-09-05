@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_payment_info_payment_infos",
+  "info": {
+    "displayName": "payment_info"
+  },
+  "options": {},
+  "attributes": {
+    "Account_number": {
+      "type": "biginteger"
+    },
+    "amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "payment_method": {
+      "type": "string"
+    }
+  }
+}

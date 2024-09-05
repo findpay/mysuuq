@@ -1039,7 +1039,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     price: Attribute.Decimal;
     old_price: Attribute.Decimal;
     cart: Attribute.Relation<
@@ -1048,6 +1047,8 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'api::cart.cart'
     >;
     product_url: Attribute.String & Attribute.Required;
+    image: Attribute.String;
+    payment_info: Attribute.Component<'payment-info.payment-info'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
