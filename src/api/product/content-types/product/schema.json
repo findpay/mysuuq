@@ -33,12 +33,6 @@
     },
     "image": {
       "type": "string"
-    },
-    "payment_info": {
-      "displayName": "payment_info",
-      "type": "component",
-      "repeatable": false,
-      "component": "payment-info.payment-info"
     }
   }
 }

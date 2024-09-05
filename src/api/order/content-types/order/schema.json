@@ -59,6 +59,11 @@
     "shipment_cost": {
       "type": "decimal",
       "required": true
+    },
+    "payment_info": {
+      "type": "component",
+      "repeatable": true,
+      "component": "payment-info.payment-info"
     }
   }
 }

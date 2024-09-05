@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-09-05T19:00:24.828Z"
+    "x-generation-date": "2024-09-05T19:12:04.992Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1245,26 +1245,6 @@
                                                               "image": {
                                                                 "type": "string"
                                                               },
-                                                              "payment_info": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "id": {
-                                                                    "type": "number"
-                                                                  },
-                                                                  "Account_number": {
-                                                                    "type": "string",
-                                                                    "pattern": "^\\d*$",
-                                                                    "example": "123456789"
-                                                                  },
-                                                                  "amount": {
-                                                                    "type": "number",
-                                                                    "format": "float"
-                                                                  },
-                                                                  "payment_method": {
-                                                                    "type": "string"
-                                                                  }
-                                                                }
-                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -1373,6 +1353,29 @@
                                     "shipment_cost": {
                                       "type": "number",
                                       "format": "float"
+                                    },
+                                    "payment_info": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "Account_number": {
+                                            "type": "string",
+                                            "pattern": "^\\d*$",
+                                            "example": "123456789"
+                                          },
+                                          "amount": {
+                                            "type": "number",
+                                            "format": "float"
+                                          },
+                                          "payment_method": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -3587,26 +3590,6 @@
                                                               "image": {
                                                                 "type": "string"
                                                               },
-                                                              "payment_info": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "id": {
-                                                                    "type": "number"
-                                                                  },
-                                                                  "Account_number": {
-                                                                    "type": "string",
-                                                                    "pattern": "^\\d*$",
-                                                                    "example": "123456789"
-                                                                  },
-                                                                  "amount": {
-                                                                    "type": "number",
-                                                                    "format": "float"
-                                                                  },
-                                                                  "payment_method": {
-                                                                    "type": "string"
-                                                                  }
-                                                                }
-                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -3715,6 +3698,29 @@
                                     "shipment_cost": {
                                       "type": "number",
                                       "format": "float"
+                                    },
+                                    "payment_info": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "Account_number": {
+                                            "type": "string",
+                                            "pattern": "^\\d*$",
+                                            "example": "123456789"
+                                          },
+                                          "amount": {
+                                            "type": "number",
+                                            "format": "float"
+                                          },
+                                          "payment_method": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -4526,6 +4532,12 @@
               "shipment_cost": {
                 "type": "number",
                 "format": "float"
+              },
+              "payment_info": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PaymentInfoPaymentInfoComponent"
+                }
               }
             }
           }
@@ -5650,26 +5662,6 @@
                                                               "image": {
                                                                 "type": "string"
                                                               },
-                                                              "payment_info": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "id": {
-                                                                    "type": "number"
-                                                                  },
-                                                                  "Account_number": {
-                                                                    "type": "string",
-                                                                    "pattern": "^\\d*$",
-                                                                    "example": "123456789"
-                                                                  },
-                                                                  "amount": {
-                                                                    "type": "number",
-                                                                    "format": "float"
-                                                                  },
-                                                                  "payment_method": {
-                                                                    "type": "string"
-                                                                  }
-                                                                }
-                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -5778,6 +5770,29 @@
                                     "shipment_cost": {
                                       "type": "number",
                                       "format": "float"
+                                    },
+                                    "payment_info": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "Account_number": {
+                                            "type": "string",
+                                            "pattern": "^\\d*$",
+                                            "example": "123456789"
+                                          },
+                                          "amount": {
+                                            "type": "number",
+                                            "format": "float"
+                                          },
+                                          "payment_method": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -6042,6 +6057,12 @@
             "type": "number",
             "format": "float"
           },
+          "payment_info": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentInfoPaymentInfoComponent"
+            }
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -6109,6 +6130,26 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "PaymentInfoPaymentInfoComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "Account_number": {
+            "type": "string",
+            "pattern": "^\\d*$",
+            "example": "123456789"
+          },
+          "amount": {
+            "type": "number",
+            "format": "float"
+          },
+          "payment_method": {
+            "type": "string"
           }
         }
       },
@@ -6942,9 +6983,6 @@
               },
               "image": {
                 "type": "string"
-              },
-              "payment_info": {
-                "$ref": "#/components/schemas/PaymentInfoPaymentInfoComponent"
               }
             }
           }
@@ -8017,6 +8055,29 @@
                                                   "type": "number",
                                                   "format": "float"
                                                 },
+                                                "payment_info": {
+                                                  "type": "array",
+                                                  "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "id": {
+                                                        "type": "number"
+                                                      },
+                                                      "Account_number": {
+                                                        "type": "string",
+                                                        "pattern": "^\\d*$",
+                                                        "example": "123456789"
+                                                      },
+                                                      "amount": {
+                                                        "type": "number",
+                                                        "format": "float"
+                                                      },
+                                                      "payment_method": {
+                                                        "type": "string"
+                                                      }
+                                                    }
+                                                  }
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -8290,26 +8351,6 @@
                                     "image": {
                                       "type": "string"
                                     },
-                                    "payment_info": {
-                                      "type": "object",
-                                      "properties": {
-                                        "id": {
-                                          "type": "number"
-                                        },
-                                        "Account_number": {
-                                          "type": "string",
-                                          "pattern": "^\\d*$",
-                                          "example": "123456789"
-                                        },
-                                        "amount": {
-                                          "type": "number",
-                                          "format": "float"
-                                        },
-                                        "payment_method": {
-                                          "type": "string"
-                                        }
-                                      }
-                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -8413,9 +8454,6 @@
           "image": {
             "type": "string"
           },
-          "payment_info": {
-            "$ref": "#/components/schemas/PaymentInfoPaymentInfoComponent"
-          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -8479,26 +8517,6 @@
           },
           "meta": {
             "type": "object"
-          }
-        }
-      },
-      "PaymentInfoPaymentInfoComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "Account_number": {
-            "type": "string",
-            "pattern": "^\\d*$",
-            "example": "123456789"
-          },
-          "amount": {
-            "type": "number",
-            "format": "float"
-          },
-          "payment_method": {
-            "type": "string"
           }
         }
       },
@@ -9630,26 +9648,6 @@
                                                               "image": {
                                                                 "type": "string"
                                                               },
-                                                              "payment_info": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                  "id": {
-                                                                    "type": "number"
-                                                                  },
-                                                                  "Account_number": {
-                                                                    "type": "string",
-                                                                    "pattern": "^\\d*$",
-                                                                    "example": "123456789"
-                                                                  },
-                                                                  "amount": {
-                                                                    "type": "number",
-                                                                    "format": "float"
-                                                                  },
-                                                                  "payment_method": {
-                                                                    "type": "string"
-                                                                  }
-                                                                }
-                                                              },
                                                               "createdAt": {
                                                                 "type": "string",
                                                                 "format": "date-time"
@@ -9758,6 +9756,29 @@
                                     "shipment_cost": {
                                       "type": "number",
                                       "format": "float"
+                                    },
+                                    "payment_info": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "number"
+                                          },
+                                          "Account_number": {
+                                            "type": "string",
+                                            "pattern": "^\\d*$",
+                                            "example": "123456789"
+                                          },
+                                          "amount": {
+                                            "type": "number",
+                                            "format": "float"
+                                          },
+                                          "payment_method": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      }
                                     },
                                     "createdAt": {
                                       "type": "string",

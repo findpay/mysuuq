@@ -975,6 +975,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       Attribute.Required &
       Attribute.DefaultTo<'pending '>;
     shipment_cost: Attribute.Decimal & Attribute.Required;
+    payment_info: Attribute.Component<'payment-info.payment-info', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1048,7 +1049,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     >;
     product_url: Attribute.String & Attribute.Required;
     image: Attribute.String;
-    payment_info: Attribute.Component<'payment-info.payment-info'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
