@@ -976,6 +976,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       Attribute.DefaultTo<'pending '>;
     shipment_cost: Attribute.Decimal & Attribute.Required;
     payment_info: Attribute.Component<'payment-info.payment-info', true>;
+    order_info: Attribute.Component<'order-info.order-info'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

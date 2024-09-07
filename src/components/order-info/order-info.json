@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_order_info_order_infos",
+  "info": {
+    "displayName": "order_info"
+  },
+  "options": {},
+  "attributes": {
+    "order_web_id": {
+      "type": "string"
+    },
+    "tracking_id": {
+      "type": "string"
+    }
+  }
+}

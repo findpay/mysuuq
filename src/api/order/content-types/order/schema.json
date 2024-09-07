@@ -64,6 +64,12 @@
       "type": "component",
       "repeatable": true,
       "component": "payment-info.payment-info"
+    },
+    "order_info": {
+      "displayName": "order_info",
+      "type": "component",
+      "repeatable": false,
+      "component": "order-info.order-info"
     }
   }
 }

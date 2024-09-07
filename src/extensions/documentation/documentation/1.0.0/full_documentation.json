@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-09-05T19:12:04.992Z"
+    "x-generation-date": "2024-09-05T19:22:13.685Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1374,6 +1374,20 @@
                                           "payment_method": {
                                             "type": "string"
                                           }
+                                        }
+                                      }
+                                    },
+                                    "order_info": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "number"
+                                        },
+                                        "order_web_id": {
+                                          "type": "string"
+                                        },
+                                        "tracking_id": {
+                                          "type": "string"
                                         }
                                       }
                                     },
@@ -3722,6 +3736,20 @@
                                         }
                                       }
                                     },
+                                    "order_info": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "number"
+                                        },
+                                        "order_web_id": {
+                                          "type": "string"
+                                        },
+                                        "tracking_id": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -4538,6 +4566,9 @@
                 "items": {
                   "$ref": "#/components/schemas/PaymentInfoPaymentInfoComponent"
                 }
+              },
+              "order_info": {
+                "$ref": "#/components/schemas/OrderInfoOrderInfoComponent"
               }
             }
           }
@@ -5794,6 +5825,20 @@
                                         }
                                       }
                                     },
+                                    "order_info": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "number"
+                                        },
+                                        "order_web_id": {
+                                          "type": "string"
+                                        },
+                                        "tracking_id": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -6063,6 +6108,9 @@
               "$ref": "#/components/schemas/PaymentInfoPaymentInfoComponent"
             }
           },
+          "order_info": {
+            "$ref": "#/components/schemas/OrderInfoOrderInfoComponent"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -6149,6 +6197,20 @@
             "format": "float"
           },
           "payment_method": {
+            "type": "string"
+          }
+        }
+      },
+      "OrderInfoOrderInfoComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "order_web_id": {
+            "type": "string"
+          },
+          "tracking_id": {
             "type": "string"
           }
         }
@@ -8078,6 +8140,20 @@
                                                     }
                                                   }
                                                 },
+                                                "order_info": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "id": {
+                                                      "type": "number"
+                                                    },
+                                                    "order_web_id": {
+                                                      "type": "string"
+                                                    },
+                                                    "tracking_id": {
+                                                      "type": "string"
+                                                    }
+                                                  }
+                                                },
                                                 "createdAt": {
                                                   "type": "string",
                                                   "format": "date-time"
@@ -9777,6 +9853,20 @@
                                           "payment_method": {
                                             "type": "string"
                                           }
+                                        }
+                                      }
+                                    },
+                                    "order_info": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "number"
+                                        },
+                                        "order_web_id": {
+                                          "type": "string"
+                                        },
+                                        "tracking_id": {
+                                          "type": "string"
                                         }
                                       }
                                     },
