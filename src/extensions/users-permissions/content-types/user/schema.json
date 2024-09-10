@@ -86,6 +86,13 @@
       "relation": "oneToOne",
       "target": "api::cart.cart",
       "mappedBy": "user"
+    },
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "last_name": {
+      "type": "string"
     }
   }
 }
