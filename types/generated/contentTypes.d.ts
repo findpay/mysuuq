@@ -770,17 +770,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    orders: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'oneToMany',
-      'api::order.order'
-    >;
     active: Attribute.Boolean & Attribute.DefaultTo<true>;
-    addresses: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'oneToMany',
-      'api::address.address'
-    >;
     cart: Attribute.Relation<
       'plugin::users-permissions.user',
       'oneToOne',
@@ -822,10 +812,10 @@ export interface ApiAddressAddress extends Schema.CollectionType {
     phone_number: Attribute.String & Attribute.Required;
     state: Attribute.String;
     type: Attribute.Enumeration<['Office', 'Home', 'Other']>;
-    user: Attribute.Relation<
+    member: Attribute.Relation<
       'api::address.address',
       'manyToOne',
-      'plugin::users-permissions.user'
+      'api::member.member'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -914,6 +904,7 @@ export interface ApiConfigConfig extends Schema.SingleType {
     singularName: 'config';
     pluralName: 'configs';
     displayName: 'config';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -925,6 +916,7 @@ export interface ApiConfigConfig extends Schema.SingleType {
     contact_number: Attribute.BigInteger;
     whatsapp_number: Attribute.BigInteger;
     app_version: Attribute.String;
+    api_key: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -936,6 +928,52 @@ export interface ApiConfigConfig extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::config.config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMemberMember extends Schema.CollectionType {
+  collectionName: 'members';
+  info: {
+    singularName: 'member';
+    pluralName: 'members';
+    displayName: 'member';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    full_name: Attribute.String & Attribute.Required;
+    phone: Attribute.BigInteger & Attribute.Required;
+    is_active: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<true>;
+    password: Attribute.Password & Attribute.Required;
+    orders: Attribute.Relation<
+      'api::member.member',
+      'oneToMany',
+      'api::order.order'
+    >;
+    addresses: Attribute.Relation<
+      'api::member.member',
+      'oneToMany',
+      'api::address.address'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::member.member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::member.member',
       'oneToOne',
       'admin::user'
     > &
@@ -962,11 +1000,6 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       'oneToOne',
       'api::website.website'
     >;
-    user: Attribute.Relation<
-      'api::order.order',
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
     order_state: Attribute.Enumeration<
       ['Reviewing', 'Ordered', 'Received', 'Delivered ']
     > &
@@ -979,6 +1012,11 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     shipment_cost: Attribute.Decimal & Attribute.Required;
     payment_info: Attribute.Component<'payment-info.payment-info', true>;
     order_info: Attribute.Component<'order-info.order-info'>;
+    member: Attribute.Relation<
+      'api::order.order',
+      'manyToOne',
+      'api::member.member'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1162,6 +1200,7 @@ declare module '@strapi/types' {
       'api::banner.banner': ApiBannerBanner;
       'api::cart.cart': ApiCartCart;
       'api::config.config': ApiConfigConfig;
+      'api::member.member': ApiMemberMember;
       'api::order.order': ApiOrderOrder;
       'api::payment-method.payment-method': ApiPaymentMethodPaymentMethod;
       'api::product.product': ApiProductProduct;

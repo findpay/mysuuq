@@ -24,12 +24,6 @@
       "relation": "oneToOne",
       "target": "api::website.website"
     },
-    "user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "orders"
-    },
     "order_state": {
       "type": "enumeration",
       "enum": [
@@ -70,6 +64,12 @@
       "type": "component",
       "repeatable": false,
       "component": "order-info.order-info"
+    },
+    "member": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::member.member",
+      "inversedBy": "orders"
     }
   }
 }
