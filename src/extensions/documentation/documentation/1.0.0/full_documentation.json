@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-09-12T10:50:38.288Z"
+    "x-generation-date": "2024-09-14T11:34:04.431Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1627,6 +1627,12 @@
                             }
                           }
                         }
+                      },
+                      "password": {
+                        "type": "string"
+                      },
+                      "password_2": {
+                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",
@@ -3863,11 +3869,6 @@
               "is_active": {
                 "type": "boolean"
               },
-              "password": {
-                "type": "string",
-                "format": "password",
-                "example": "*******"
-              },
               "orders": {
                 "type": "array",
                 "items": {
@@ -3895,6 +3896,12 @@
                   ],
                   "example": "string or id"
                 }
+              },
+              "password": {
+                "type": "string"
+              },
+              "password_2": {
+                "type": "string"
               }
             }
           }
@@ -5339,6 +5346,12 @@
                                         }
                                       }
                                     },
+                                    "password": {
+                                      "type": "string"
+                                    },
+                                    "password_2": {
+                                      "type": "string"
+                                    },
                                     "createdAt": {
                                       "type": "string",
                                       "format": "date-time"
@@ -5463,6 +5476,12 @@
                 }
               }
             }
+          },
+          "password": {
+            "type": "string"
+          },
+          "password_2": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -7171,6 +7190,12 @@
                             }
                           }
                         }
+                      },
+                      "password": {
+                        "type": "string"
+                      },
+                      "password_2": {
+                        "type": "string"
                       },
                       "createdAt": {
                         "type": "string",

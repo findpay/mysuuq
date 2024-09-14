@@ -25,10 +25,6 @@
       "default": true,
       "required": true
     },
-    "password": {
-      "type": "password",
-      "required": true
-    },
     "orders": {
       "type": "relation",
       "relation": "oneToMany",
@@ -40,6 +36,17 @@
       "relation": "oneToMany",
       "target": "api::address.address",
       "mappedBy": "member"
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "password_2": {
+      "type": "customField",
+      "options": {
+        "hint": "password"
+      },
+      "customField": "plugin::encryptable-field.encryptable-field"
     }
   }
 }

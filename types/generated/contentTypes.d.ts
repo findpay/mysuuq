@@ -952,7 +952,6 @@ export interface ApiMemberMember extends Schema.CollectionType {
     is_active: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<true>;
-    password: Attribute.Password & Attribute.Required;
     orders: Attribute.Relation<
       'api::member.member',
       'oneToMany',
@@ -963,6 +962,14 @@ export interface ApiMemberMember extends Schema.CollectionType {
       'oneToMany',
       'api::address.address'
     >;
+    password: Attribute.String & Attribute.Required;
+    password_2: Attribute.Text &
+      Attribute.CustomField<
+        'plugin::encryptable-field.encryptable-field',
+        {
+          hint: 'password';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
