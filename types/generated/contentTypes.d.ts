@@ -916,7 +916,7 @@ export interface ApiConfigConfig extends Schema.SingleType {
     contact_number: Attribute.BigInteger;
     whatsapp_number: Attribute.BigInteger;
     app_version: Attribute.String;
-    api_key: Attribute.String;
+    api_key: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
