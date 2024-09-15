@@ -37,16 +37,9 @@
       "target": "api::address.address",
       "mappedBy": "member"
     },
-    "password": {
+    "pass": {
       "type": "string",
       "required": true
-    },
-    "password_2": {
-      "type": "customField",
-      "options": {
-        "hint": "password"
-      },
-      "customField": "plugin::encryptable-field.encryptable-field"
     }
   }
 }

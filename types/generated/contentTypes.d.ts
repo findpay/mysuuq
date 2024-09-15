@@ -962,14 +962,7 @@ export interface ApiMemberMember extends Schema.CollectionType {
       'oneToMany',
       'api::address.address'
     >;
-    password: Attribute.String & Attribute.Required;
-    password_2: Attribute.Text &
-      Attribute.CustomField<
-        'plugin::encryptable-field.encryptable-field',
-        {
-          hint: 'password';
-        }
-      >;
+    pass: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
