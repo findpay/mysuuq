@@ -7,6 +7,8 @@ import documentation from "@strapi/plugin-documentation/strapi-admin";
 import i18N from "@strapi/plugin-i18n/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import encryptableField from "strapi-plugin-encryptable-field/strapi-admin";
+import importExportEntries from "strapi-plugin-import-export-entries/strapi-admin";
+import strapiPluginMoesif from "strapi-plugin-moesif/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 renderAdmin(document.getElementById("strapi"), {
@@ -16,5 +18,7 @@ renderAdmin(document.getElementById("strapi"), {
     i18n: i18N,
     "users-permissions": usersPermissions,
     "encryptable-field": encryptableField,
+    "import-export-entries": importExportEntries,
+    "strapi-plugin-moesif": strapiPluginMoesif,
   },
 });
