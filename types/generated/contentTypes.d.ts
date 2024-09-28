@@ -1148,6 +1148,7 @@ export interface ApiWebsiteWebsite extends Schema.CollectionType {
     singularName: 'website';
     pluralName: 'websites';
     displayName: 'Website';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1160,6 +1161,7 @@ export interface ApiWebsiteWebsite extends Schema.CollectionType {
     >;
     image: Attribute.Media<'images'> & Attribute.Required;
     active: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<true>;
+    query_selector: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "website",
     "pluralName": "websites",
-    "displayName": "Website"
+    "displayName": "Website",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -33,17 +34,21 @@
       ]
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "active": {
       "type": "boolean",
       "default": true,
       "required": true
+    },
+    "query_selector": {
+      "type": "json",
+      "required": false
     }
   }
 }
