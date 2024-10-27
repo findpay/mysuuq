@@ -935,6 +935,40 @@ export interface ApiConfigConfig extends Schema.SingleType {
   };
 }
 
+export interface ApiCouponCoupon extends Schema.CollectionType {
+  collectionName: 'coupons';
+  info: {
+    singularName: 'coupon';
+    pluralName: 'coupons';
+    displayName: 'coupon ';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    percentage_discount: Attribute.Integer & Attribute.Required;
+    fixed_discount: Attribute.Integer;
+    expiry_date: Attribute.Date & Attribute.Required;
+    active_date: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::coupon.coupon',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::coupon.coupon',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiMemberMember extends Schema.CollectionType {
   collectionName: 'members';
   info: {
@@ -1145,6 +1179,40 @@ export interface ApiRequestWebRequestWeb extends Schema.CollectionType {
   };
 }
 
+export interface ApiServiceService extends Schema.CollectionType {
+  collectionName: 'services';
+  info: {
+    singularName: 'service';
+    pluralName: 'services';
+    displayName: 'service';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    name: Attribute.String;
+    isActive: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    icon: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::service.service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::service.service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiShippingHandlingShippingHandling extends Schema.SingleType {
   collectionName: 'shipping_handlings';
   info: {
@@ -1236,11 +1304,13 @@ declare module '@strapi/types' {
       'api::banner.banner': ApiBannerBanner;
       'api::cart.cart': ApiCartCart;
       'api::config.config': ApiConfigConfig;
+      'api::coupon.coupon': ApiCouponCoupon;
       'api::member.member': ApiMemberMember;
       'api::order.order': ApiOrderOrder;
       'api::payment-method.payment-method': ApiPaymentMethodPaymentMethod;
       'api::product.product': ApiProductProduct;
       'api::request-web.request-web': ApiRequestWebRequestWeb;
+      'api::service.service': ApiServiceService;
       'api::shipping-handling.shipping-handling': ApiShippingHandlingShippingHandling;
       'api::website.website': ApiWebsiteWebsite;
     }

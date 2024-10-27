@@ -1,5 +1,13 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ServiceServices extends Schema.Component {
+  collectionName: 'components_service_services';
+  info: {
+    displayName: 'services';
+  };
+  attributes: {};
+}
+
 export interface PricingPricing extends Schema.Component {
   collectionName: 'components_pricing_pricings';
   info: {
@@ -51,6 +59,7 @@ export interface OrderInfoOrderInfo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'service.services': ServiceServices;
       'pricing.pricing': PricingPricing;
       'pricing.fee': PricingFee;
       'payment-info.payment-info': PaymentInfoPaymentInfo;
