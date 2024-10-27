@@ -1005,11 +1005,10 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     > &
       Attribute.Required &
       Attribute.DefaultTo<'Reviewing'>;
-    cart: Attribute.Relation<'api::order.order', 'oneToOne', 'api::cart.cart'>;
     payment_state: Attribute.Enumeration<['success', 'Failed', 'pending ']> &
       Attribute.Required &
       Attribute.DefaultTo<'pending '>;
-    shipment_cost: Attribute.Decimal & Attribute.Required;
+    shipment_handling_price: Attribute.Decimal & Attribute.Required;
     payment_info: Attribute.Component<'payment-info.payment-info', true>;
     order_info: Attribute.Component<'order-info.order-info'>;
     member: Attribute.Relation<
@@ -1017,6 +1016,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       'manyToOne',
       'api::member.member'
     >;
+    total_payment: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1090,6 +1090,9 @@ export interface ApiProductProduct extends Schema.CollectionType {
     >;
     product_url: Attribute.String & Attribute.Required;
     image: Attribute.String;
+    product_in_kg: Attribute.Decimal & Attribute.Required;
+    size: Attribute.String;
+    country: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1135,6 +1138,37 @@ export interface ApiRequestWebRequestWeb extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::request-web.request-web',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiShippingHandlingShippingHandling extends Schema.SingleType {
+  collectionName: 'shipping_handlings';
+  info: {
+    singularName: 'shipping-handling';
+    pluralName: 'shipping-handlings';
+    displayName: 'shipping_handling';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pricing: Attribute.Component<'pricing.pricing', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::shipping-handling.shipping-handling',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::shipping-handling.shipping-handling',
       'oneToOne',
       'admin::user'
     > &
@@ -1207,6 +1241,7 @@ declare module '@strapi/types' {
       'api::payment-method.payment-method': ApiPaymentMethodPaymentMethod;
       'api::product.product': ApiProductProduct;
       'api::request-web.request-web': ApiRequestWebRequestWeb;
+      'api::shipping-handling.shipping-handling': ApiShippingHandlingShippingHandling;
       'api::website.website': ApiWebsiteWebsite;
     }
   }

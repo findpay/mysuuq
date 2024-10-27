@@ -1,5 +1,30 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface PricingPricing extends Schema.Component {
+  collectionName: 'components_pricing_pricings';
+  info: {
+    displayName: 'pricing';
+    description: '';
+  };
+  attributes: {
+    region: Attribute.String & Attribute.Required;
+    fee: Attribute.Component<'pricing.fee', true>;
+    base_price: Attribute.Decimal;
+  };
+}
+
+export interface PricingFee extends Schema.Component {
+  collectionName: 'components_pricing_fees';
+  info: {
+    displayName: 'fee';
+  };
+  attributes: {
+    min_weight: Attribute.Decimal;
+    max_weight: Attribute.Decimal;
+    price: Attribute.Decimal;
+  };
+}
+
 export interface PaymentInfoPaymentInfo extends Schema.Component {
   collectionName: 'components_payment_info_payment_infos';
   info: {
@@ -26,6 +51,8 @@ export interface OrderInfoOrderInfo extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'pricing.pricing': PricingPricing;
+      'pricing.fee': PricingFee;
       'payment-info.payment-info': PaymentInfoPaymentInfo;
       'order-info.order-info': OrderInfoOrderInfo;
     }

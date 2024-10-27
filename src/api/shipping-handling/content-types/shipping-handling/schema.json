@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "shipping_handlings",
+  "info": {
+    "singularName": "shipping-handling",
+    "pluralName": "shipping-handlings",
+    "displayName": "shipping_handling",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pricing": {
+      "displayName": "pricing",
+      "type": "component",
+      "repeatable": true,
+      "component": "pricing.pricing"
+    }
+  }
+}

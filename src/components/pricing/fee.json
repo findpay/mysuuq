@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_pricing_fees",
+  "info": {
+    "displayName": "fee"
+  },
+  "options": {},
+  "attributes": {
+    "min_weight": {
+      "type": "decimal"
+    },
+    "max_weight": {
+      "type": "decimal"
+    },
+    "price": {
+      "type": "decimal"
+    }
+  }
+}

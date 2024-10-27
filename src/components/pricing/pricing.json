@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_pricing_pricings",
+  "info": {
+    "displayName": "pricing",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "region": {
+      "type": "string",
+      "required": true
+    },
+    "fee": {
+      "displayName": "fee",
+      "type": "component",
+      "repeatable": true,
+      "component": "pricing.fee"
+    },
+    "base_price": {
+      "type": "decimal"
+    }
+  }
+}

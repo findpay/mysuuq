@@ -33,6 +33,16 @@
     },
     "image": {
       "type": "string"
+    },
+    "product_in_kg": {
+      "type": "decimal",
+      "required": true
+    },
+    "size": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
     }
   }
 }

@@ -35,11 +35,6 @@
       "default": "Reviewing",
       "required": true
     },
-    "cart": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::cart.cart"
-    },
     "payment_state": {
       "type": "enumeration",
       "enum": [
@@ -50,7 +45,7 @@
       "default": "pending ",
       "required": true
     },
-    "shipment_cost": {
+    "shipment_handling_price": {
       "type": "decimal",
       "required": true
     },
@@ -70,6 +65,9 @@
       "relation": "manyToOne",
       "target": "api::member.member",
       "inversedBy": "orders"
+    },
+    "total_payment": {
+      "type": "decimal"
     }
   }
 }
